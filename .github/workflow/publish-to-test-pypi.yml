@@ -2,17 +2,22 @@ name: Publish Python 🐍 distributions 📦 to PyPI and TestPyPI
 
 on: push
 
+- name: pypi-publish
+  uses: pypa/gh-action-pypi-publish@v1.4.1
+
+
 jobs:
   build-n-publish:
     name: Build and publish Python 🐍 distributions 📦 to PyPI and TestPyPI
     runs-on: Windows/Mac
 
 steps:
-  - uses: actions/checkout@master
+  - uses: actions/checkout@v2
   - name: Set up Python 3.8
     uses: actions/setup-python@v1
     with:
       python-version: 3.8
+
   - name: Install pypa/build
       run: >-
         python -m
